@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitácora - Proyecto de Sistemas Operativos</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Bitácora del Proyecto de Sistemas Operativos</h1>
+      <p>Exploración práctica con Linux, Docker, Kubernetes y más.</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#portada">Portada</a></li>
+      <li><a href="#actividades">Actividades</a></li>
+      <li><a href="#scripts">Scripts</a></li>
+      <li><a href="#docker">Docker & Kubernetes</a></li>
+      <li><a href="#presentacion">Presentación</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section id="portada">
+      <h2>Portada</h2>
+      <p>
+        Este proyecto tiene como objetivo que los estudiantes de Sistemas Operativos apliquen los conocimientos adquiridos mediante la instalación de distribuciones Linux, uso de máquinas virtuales y contenedores Docker, así como la implementación de configuraciones en Kubernetes. La práctica permite una conexión entre lo teórico y el mundo profesional.
+      </p>
+      <img src="imagenes/linux_logo.png" alt="Logo Linux" class="illustration">
+    </section>
+
+    <section id="actividades">
+      <h2>Actividades realizadas</h2>
+
+      <article>
+        <h3>1. Instalación de Ubuntu en Máquina Virtual</h3>
+        <p>Se utilizó VirtualBox para instalar Ubuntu 22.04 LTS. El proceso incluyó la creación de una máquina virtual, configuración de red y discos virtuales.</p>
+        <img src="imagenes/instalacion_ubuntu.png" alt="Instalación Ubuntu">
+        <video controls>
+          <source src="videos/ubuntu_vm.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+      </article>
+
+      <article>
+        <h3>2. Comandos Básicos en Linux</h3>
+        <p>Se exploraron comandos esenciales para la gestión de archivos, permisos y procesos, como <code>ls</code>, <code>chmod</code>, <code>ps</code>, y <code>top</code>.</p>
+        <img src="imagenes/comandos_linux.png" alt="Comandos Linux">
+      </article>
+
+    </section>
+
+    <section id="scripts">
+      <h2>Scripts de automatización</h2>
+      <p>Se desarrollaron scripts Bash para automatizar tareas comunes. Por ejemplo:</p>
+      <pre><code>#!/bin/bash
+# Script para actualizar el sistema
+echo "Actualizando..."
+sudo apt update && sudo apt upgrade -y
+echo "Listo."
+      </code></pre>
+      <p>Este script permite mantener el sistema operativo actualizado de manera rápida y eficiente.</p>
+    </section>
+
+    <section id="docker">
+      <h2>Docker y Kubernetes</h2>
+
+      <article>
+        <h3>3. Creación de Imagen Docker Personalizada</h3>
+        <p>Se construyó una imagen Docker con Apache y una página HTML personalizada para simular un entorno web.</p>
+        <img src="imagenes/docker_image.png" alt="Imagen Docker">
+      </article>
+
+      <article>
+        <h3>4. Despliegue con Kubernetes</h3>
+        <p>Se utilizó Minikube para crear un clúster local y desplegar la imagen Docker con servicios y pods configurados.</p>
+        <video controls>
+          <source src="videos/kubernetes_demo.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+      </article>
+    </section>
+
+    <section id="presentacion">
+      <h2>Presentación Final</h2>
+      <p>Haz clic en el siguiente enlace para ver la presentación final del proyecto:</p>
+      <a href="https://www.youtube.com/watch?v=tu_video" target="_blank" class="btn">Ver Presentación</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Bitácora de Sistemas Operativos | Desarrollado por [Tu Nombre]</p>
+  </footer>
+</body>
+</html>
