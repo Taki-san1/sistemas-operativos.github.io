@@ -156,14 +156,97 @@ cat prueba2.txt
       <!-- Actividad 3.1 -->
       <article>
         <h3>3.1 Script en entorno gráfico</h3>
-        <p>Explicación del script automatizado en entorno gráfico, como backup o limpieza de archivos...</p>
+        <article>
+  <h3>🧹 Script de limpieza de archivos temporales (entorno gráfico)</h3>
+
+  <pre><code>
+#!/bin/bash 
+# Script de limpieza de archivos temporales
+
+notify-send "Limpieza iniciada" "Eliminando archivos temporales..."
+
+# Limpiar cachés y archivos temporales
+sudo apt clean
+sudo apt autoclean
+sudo apt autoremove -y
+rm -rf ~/.cache/thumbnails/*
+rm -rf /tmp/*
+
+notify-send "Limpieza completa" "Archivos temporales eliminados con éxito"
+  </code></pre>
+
+  <h4>🧠 ¿Qué hace este script?</h4>
+  <ul>
+    <li><strong>#!/bin/bash</strong>: Indica que el script se ejecuta con el intérprete Bash.</li>
+    <li><strong>notify-send</strong>: Muestra notificaciones gráficas al usuario.
+      <ul>
+        <li>"Limpieza iniciada": Notifica que comienza la limpieza.</li>
+        <li>"Limpieza completa": Notifica que finalizó exitosamente.</li>
+      </ul>
+    </li>
+    <li><strong>sudo apt clean</strong>: Borra paquetes descargados (.deb) que ya fueron instalados.</li>
+    <li><strong>sudo apt autoclean</strong>: Elimina .deb antiguos que ya no se pueden volver a descargar.</li>
+    <li><strong>sudo apt autoremove -y</strong>: Elimina dependencias huérfanas que ya no se usan.</li>
+    <li><strong>rm -rf ~/.cache/thumbnails/*</strong>: Borra miniaturas guardadas en caché.</li>
+    <li><strong>rm -rf /tmp/*</strong>: Elimina archivos temporales del sistema en <code>/tmp</code>.</li>
+  </ul>
+
+  <h4>⚙️ Para ejecutar este script:</h4>
+  <pre><code>
+chmod +x limpieza.sh
+🔹 Otorga permisos de ejecución al archivo limpieza.sh.
+
+./limpieza.sh
+🔹 Ejecuta el script desde el mismo directorio donde está ubicado.
+🔸 Usa <code>cd</code> para moverte al directorio si es necesario.
+  </code></pre>
         <iframe width="560" height="315" src="https://youtube.com/embed/-6qghhWaQbc" frameborder="0" allowfullscreen></iframe>
       </article>
 
       <!-- Actividad 3.2 -->
       <article>
         <h3>3.2 Script en entorno consola</h3>
-        <p>Versión del script adaptado y ejecutado en consola...</p>
+        <article>
+  <h3>🗄️ Script de respaldo (backup) de la carpeta personal</h3>
+
+  <pre><code>
+#!/bin/bash
+# Script de backup de la carpeta personal
+
+FECHA=$(date +%y-%m-%d_%H-%M)
+DESTINO="$HOME/backups"
+ARCHIVO="backup_home_$FECHA.tar.gz"
+
+echo "Iniciando backup de $HOME..."
+
+# Crear carpeta destino
+mkdir -p "$DESTINO"
+
+# Crear el backup (excluyendo la carpeta destino para no hacer copia dentro de sí misma)
+tar -czf "$DESTINO/$ARCHIVO" --exclude="$DESTINO" "$HOME"
+
+echo "Backup completado: $DESTINO/$ARCHIVO"
+  </code></pre>
+
+  <h4>🧠 ¿Qué hace este script?</h4>
+  <ul>
+    <li><strong>#!/bin/bash</strong>: Indica que el script debe ejecutarse con el intérprete Bash.</li>
+    <li><strong>FECHA=$(date +%y-%m-%d_%H-%M)</strong>: Genera una fecha con el formato año-mes-día_hora-minutos para usarla como nombre del archivo.</li>
+    <li><strong>DESTINO="$HOME/backups"</strong>: Define la carpeta donde se guardará el backup.</li>
+    <li><strong>ARCHIVO="backup_home_$FECHA.tar.gz"</strong>: Define el nombre del archivo comprimido que se creará.</li>
+    <li><strong>mkdir -p "$DESTINO"</strong>: Crea la carpeta de destino si aún no existe.</li>
+    <li><strong>tar -czf "$DESTINO/$ARCHIVO" --exclude="$DESTINO" "$HOME"</strong>: Crea un archivo comprimido con el contenido de <code>$HOME</code> excluyendo la carpeta de backups.</li>
+    <li><strong>echo</strong>: Muestra mensajes por terminal indicando el inicio y final del proceso.</li>
+  </ul>
+
+  <h4>⚙️ Para ejecutar este script:</h4>
+  <pre><code>
+chmod +x backup.sh
+🔹 Otorga permisos de ejecución al script.
+
+./backup.sh
+🔹 Ejecuta el script desde el mismo directorio donde se encuentra.
+  </code></pre>
         <iframe width="560" height="315" src="https://youtube.com/embed/3BZ1kugUDjM" frameborder="0" allowfullscreen></iframe>
       </article>
 
