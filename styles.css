@@ -1,4 +1,3 @@
-/* Estilo general */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -7,50 +6,6 @@ body {
   color: #e0e0e0;
 }
 
-/* Portada / Hero */
-.hero {
-  background-color: #1f1f1f;
-  padding: 60px 20px;
-  text-align: center;
-  border-bottom: 2px solid #333;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #90caf9;
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  color: #b0bec5;
-  margin-bottom: 20px;
-}
-
-.objectives {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 800px;
-  text-align: left;
-}
-
-.objectives li {
-  margin-bottom: 10px;
-  padding-left: 20px;
-  position: relative;
-  color: #cfd8dc;
-}
-
-.objectives li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  color: #00e676;
-  font-weight: bold;
-}
-
-/* Encabezado */
 header {
   background-color: #1f1f1f;
   padding: 30px 0;
@@ -69,7 +24,6 @@ header p {
   color: #b0bec5;
 }
 
-/* Navegación */
 nav {
   background-color: #232323;
   padding: 10px 0;
@@ -96,7 +50,6 @@ nav ul li a:hover {
   color: #ffffff;
 }
 
-/* Contenedor principal */
 .container {
   width: 90%;
   max-width: 1000px;
@@ -104,13 +57,12 @@ nav ul li a:hover {
   padding: 20px 0;
 }
 
-/* Secciones */
 section {
   margin-bottom: 40px;
   padding: 20px;
   background-color: #1e1e1e;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 section h2 {
@@ -129,6 +81,13 @@ h3 {
 
 p {
   line-height: 1.6;
+  color: #cfd8dc;
+}
+
+/* Nuevas mejoras para formato de listas */
+ul, ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
   color: #cfd8dc;
 }
 
@@ -153,17 +112,14 @@ img, video {
   margin-top: 10px;
 }
 
-iframe {
-  width: 100%;
-  max-width: 700px;
-  height: 400px;
+.illustration {
   display: block;
   margin: 20px auto;
-  border: none;
-  border-radius: 10px;
+  width: 200px;
+  opacity: 0.9;
 }
 
-/* Botón */
+/* Botones */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -178,15 +134,18 @@ iframe {
   background-color: #64b5f6;
 }
 
-/* Ilustraciones */
-.illustration {
+/* Videos de YouTube */
+iframe {
   display: block;
-  margin: 20px auto;
-  width: 200px;
-  opacity: 0.9;
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
 }
 
-/* Pie de página */
+/* Footer */
 footer {
   background-color: #1f1f1f;
   text-align: center;
@@ -194,4 +153,50 @@ footer {
   color: #78909c;
   font-size: 0.9rem;
   border-top: 2px solid #333;
+}
+
+/* Nuevas clases específicas para portada y organización */
+.portada {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.portada h2 {
+  font-size: 2rem;
+  color: #90caf9;
+  margin-bottom: 10px;
+}
+
+.portada p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #b0bec5;
+}
+
+/* Clase para subsecciones numeradas (5.1, 5.2, etc.) */
+.subactividad {
+  margin-top: 20px;
+  padding-left: 15px;
+  border-left: 3px solid #333;
+}
+
+.subactividad h4 {
+  color: #4dd0e1;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.subactividad p {
+  margin: 0 0 10px 0;
+}
+
+/* Extra: enlaces */
+a {
+  color: #4fc3f7;
+}
+
+a:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
