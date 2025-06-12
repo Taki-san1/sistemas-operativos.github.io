@@ -1,101 +1,172 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bitácora de Proyecto</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bitácora - Proyecto de Sistemas Operativos</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
+
+  <!-- Sección de Portada -->
+  <section class="hero">
+    <div class="container">
+      <h1>Bitácora del Proyecto de Sistemas Operativos</h1>
+      <p class="hero-subtitle">
+        Este proyecto tiene como objetivo aplicar de forma práctica los conocimientos adquiridos en la asignatura de Sistemas Operativos, abordando temas como la instalación de distribuciones Linux, automatización con scripts, uso de contenedores Docker y despliegues en Kubernetes.
+      </p>
+      <ul class="objectives">
+        <li>Aplicar habilidades prácticas en la instalación y configuración de sistemas Linux.</li>
+        <li>Explorar herramientas y entornos de desarrollo modernos en Linux.</li>
+        <li>Diseñar scripts de automatización útiles para mantenimiento del sistema.</li>
+        <li>Crear y gestionar imágenes y contenedores Docker.</li>
+        <li>Desplegar servicios en Kubernetes usando pods y configuraciones básicas.</li>
+        <li>Desarrollar un sitio web que documente todas las actividades realizadas.</li>
+      </ul>
+    </div>
+  </section>
+
   <header>
-    <h1>Bitácora del Proyecto de Sistemas Operativos</h1>
-    <p>Instalación, Configuración y Automatización con Linux, Docker y Kubernetes</p>
+    <div class="container">
+      <h1>Bitácora del Proyecto de Sistemas Operativos</h1>
+      <p>Exploración práctica con Linux, Docker, Kubernetes y más.</p>
+    </div>
   </header>
 
   <nav>
     <ul>
-      <li><a href="#actividad1">Actividad 1</a></li>
-      <li><a href="#actividad2">Actividad 2</a></li>
-      <li><a href="#actividad3">Actividad 3</a></li>
-      <li><a href="#actividad4">Actividad 4</a></li>
-      <li><a href="#actividad5">Actividad 5</a></li>
-      <li><a href="#actividad6">Actividad 6</a></li>
+      <li><a href="#portada">Portada</a></li>
+      <li><a href="#actividades">Actividades</a></li>
+      <li><a href="#scripts">Scripts</a></li>
+      <li><a href="#docker">Docker & Kubernetes</a></li>
+      <li><a href="#presentacion">Presentación</a></li>
     </ul>
   </nav>
 
-  <div class="container">
-    <section id="bitacora-video">
-      <h2>Bitácora en Video por Actividades</h2>
+  <main class="container">
+    <section id="portada">
+      <h2>Portada</h2>
+      <p>
+        Este proyecto tiene como objetivo que los estudiantes de Sistemas Operativos apliquen los conocimientos adquiridos mediante la instalación de distribuciones Linux, uso de máquinas virtuales y contenedores Docker, así como la implementación de configuraciones en Kubernetes. La práctica permite una conexión entre lo teórico y el mundo profesional.
+      </p>
+      <img src="imagenes/linux_logo.png" alt="Logo Linux" class="illustration">
+    </section>
 
-      <article id="actividad1">
-        <h3>1. Instalación y configuración de distribuciones de Linux</h3>
-        <h4>1.1 Ambiente Gráfico</h4>
-        <p>Escribe aquí una breve descripción de la instalación en ambiente gráfico...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_1" title="Video ambiente gráfico" frameborder="0" allowfullscreen></iframe>
+    <section id="actividades">
+      <h2>Actividades realizadas</h2>
 
-        <h4>1.2 Ambiente Consola</h4>
-        <p>Escribe aquí una breve descripción de la instalación en consola...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" title="Video ambiente consola" frameborder="0" allowfullscreen></iframe>
+      <!-- Actividad 1.1 -->
+      <article>
+        <h3>1.1 Instalación en Ambiente Gráfico</h3>
+        <p>Aquí va una breve explicación de cómo se realizó la instalación de la distribución en ambiente gráfico...</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
       </article>
 
-      <article id="actividad2">
-        <h3>2. Instalación de editores de texto y entornos de desarrollo</h3>
-        <p>Describe el proceso de instalación de los editores...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_3" title="Video editores" frameborder="0" allowfullscreen></iframe>
+      <!-- Actividad 1.2 -->
+      <article>
+        <h3>1.2 Instalación en Ambiente Consola</h3>
+        <p>Aquí va una breve explicación de cómo se realizó la instalación en modo consola, configuración de red, paquetes, etc...</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
       </article>
 
-      <article id="actividad3">
-        <h3>3. Creación de scripts de automatización</h3>
-        <h4>3.1 Script en entorno gráfico</h4>
-        <p>Explicación del script gráfico...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_4" title="Script gráfico" frameborder="0" allowfullscreen></iframe>
-
-        <h4>3.2 Script en entorno consola</h4>
-        <p>Explicación del script consola...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_5" title="Script consola" frameborder="0" allowfullscreen></iframe>
+      <!-- Actividad 2.1 -->
+      <article>
+        <h3>2.1 Instalación de Editores e IDEs</h3>
+        <p>Instalación y configuración de varios editores de texto o entornos de desarrollo en Linux...</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID3" frameborder="0" allowfullscreen></iframe>
       </article>
 
-      <article id="actividad4">
-        <h3>4. Instalación y configuración de Docker</h3>
-        <h4>4.1 Instalación de Docker Desktop</h4>
-        <p>Descripción de la instalación de Docker Desktop...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_6" title="Docker Desktop" frameborder="0" allowfullscreen></iframe>
-
-        <h4>4.2 Creación de imagen Docker</h4>
-        <p>Explicación del Dockerfile y creación de imagen...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_7" title="Imagen Docker" frameborder="0" allowfullscreen></iframe>
-
-        <h4>4.3 Creación de contenedor</h4>
-        <p>Descripción del proceso de ejecución del contenedor...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_8" title="Contenedor Docker" frameborder="0" allowfullscreen></iframe>
+      <!-- Actividad 3.1 -->
+      <article>
+        <h3>3.1 Script en entorno gráfico</h3>
+        <p>Explicación del script automatizado en entorno gráfico, como backup o limpieza de archivos...</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID4" frameborder="0" allowfullscreen></iframe>
       </article>
 
-      <article id="actividad5">
-        <h3>5. Modificación y publicación en Docker Hub</h3>
-        <h4>5.1 Modificación de imagen</h4>
-        <p>Explicación de las modificaciones realizadas a la imagen Docker...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_9" title="Modificación de imagen" frameborder="0" allowfullscreen></iframe>
-
-        <h4>5.2 Publicación en Docker Hub</h4>
-        <p>Descripción del proceso de publicación en Docker Hub...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_10" title="Publicación Docker Hub" frameborder="0" allowfullscreen></iframe>
+      <!-- Actividad 3.2 -->
+      <article>
+        <h3>3.2 Script en entorno consola</h3>
+        <p>Versión del script adaptado y ejecutado en consola...</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID5" frameborder="0" allowfullscreen></iframe>
       </article>
 
-      <article id="actividad6">
-        <h3>6. Instalación y configuración de Kubernetes</h3>
-        <h4>6.1 Instalación en Docker Desktop</h4>
-        <p>Explicación del proceso de instalación de Kubernetes...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_11" title="Instalación Kubernetes" frameborder="0" allowfullscreen></iframe>
+      <!-- Actividad 4.1 -->
+      <article>
+        <h3>4.1 Instalación de Docker Desktop</h3>
+        <p>Explicación de cómo se instaló Docker Desktop paso a paso...</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID6" frameborder="0" allowfullscreen></iframe>
+      </article>
 
-        <h4>6.2 Creación y ejecución de un pod</h4>
-        <p>Descripción de la creación y ejecución del pod...</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_12" title="Pod Kubernetes" frameborder="0" allowfullscreen></iframe>
+      <!-- Actividad 4.2 -->
+      <article>
+        <h3>4.2 Creación de imagen Docker</h3>
+        <p>Proceso completo de creación de una imagen personalizada con un Dockerfile...</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID7" frameborder="0" allowfullscreen></iframe>
+      </article>
+
+      <!-- Actividad 4.3 -->
+      <article>
+        <h3>4.3 Creación de contenedor</h3>
+        <p>Uso de la imagen anterior para crear y ejecutar un contenedor...</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID8" frameborder="0" allowfullscreen></iframe>
+      </article>
+
+      <!-- Actividad 6.1 -->
+      <article>
+        <h3>6.1 Instalación de Kubernetes</h3>
+        <p>Documentación del proceso de instalación de Kubernetes con Docker Desktop...</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID9" frameborder="0" allowfullscreen></iframe>
+      </article>
+
+      <!-- Actividad 6.2 -->
+      <article>
+        <h3>6.2 Creación y ejecución de un pod</h3>
+        <p>Explicación de cómo se configuró y ejecutó un pod en el entorno local...</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID10" frameborder="0" allowfullscreen></iframe>
       </article>
     </section>
-  </div>
+
+    <section id="scripts">
+      <h2>Scripts de automatización</h2>
+      <p>Se desarrollaron scripts Bash para automatizar tareas comunes. Por ejemplo:</p>
+      <pre><code>#!/bin/bash
+# Script para actualizar el sistema
+echo "Actualizando..."
+sudo apt update && sudo apt upgrade -y
+echo "Listo."
+      </code></pre>
+      <p>Este script permite mantener el sistema operativo actualizado de manera rápida y eficiente.</p>
+    </section>
+
+    <section id="docker">
+      <h2>Docker y Kubernetes</h2>
+      <article>
+        <h3>Imagen Docker Personalizada</h3>
+        <p>Se construyó una imagen Docker con Apache y una página HTML personalizada para simular un entorno web.</p>
+        <img src="imagenes/docker_image.png" alt="Imagen Docker">
+      </article>
+
+      <article>
+        <h3>Despliegue con Kubernetes</h3>
+        <p>Se utilizó Minikube para crear un clúster local y desplegar la imagen Docker con servicios y pods configurados.</p>
+        <video controls>
+          <source src="videos/kubernetes_demo.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+      </article>
+    </section>
+
+    <section id="presentacion">
+      <h2>Presentación Final</h2>
+      <p>Haz clic en el siguiente enlace para ver la presentación final del proyecto:</p>
+      <a href="https://www.youtube.com/watch?v=tu_video" target="_blank" class="btn">Ver Presentación</a>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Bitácora de Proyecto - Universidad XYZ</p>
+    <p>&copy; 2025 - Bitácora de Sistemas Operativos | Desarrollado por [Tu Nombre]</p>
   </footer>
+
 </body>
 </html>
