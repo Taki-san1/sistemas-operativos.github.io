@@ -101,9 +101,141 @@
       </article>
 
       <!-- Actividad 1.2 -->
-      <article>
-        <h3>1.2 Instalación en Ambiente Consola</h3>
-        <p>Aquí va una breve explicación de cómo se realizó la instalación en modo consola, configuración de red, paquetes, etc...</p>
+      <article class="actividad">
+  <h2>Instalación de Arch Linux en ambiente consola</h2>
+  
+  <h3>🖥️ 1. Descargar la ISO de Arch Linux</h3>
+  <p>• Entramos a: <a href="https://archlinux.org/download/">https://archlinux.org/download/</a></p>
+  <p>• Bajamos hasta donde dice Colombia y elegimos el primer link</p>
+  <p>• Nos lleva a un listado de versiones; descargamos la primera (la más reciente)</p>
+
+  <h3>💻 2. Crear la máquina virtual en VirtualBox</h3>
+  <ol>
+    <li>Abrimos VirtualBox y hacemos clic en "Nueva"</li>
+    <li>Asignamos un nombre para la máquina (por ejemplo: archlinux)</li>
+    <li>Seleccionamos la imagen ISO que descargamos</li>
+    <li>Asignamos la memoria base (RAM) y los núcleos del procesador<br>Ejemplo: 2048 MB de RAM, 2 núcleos</li>
+    <li>Clic en Siguiente y luego en Terminar</li>
+    <li>Iniciamos la máquina virtual y elegimos la primera opción del menú de arranque (Arch Linux install medium)</li>
+  </ol>
+
+  <h3>🧑‍💻 3. Verificar conectividad y listar discos</h3>
+  <pre><code>ping -c 4 google.com</code></pre>
+  <p>Verifica que tienes conexión a internet.</p>
+  <pre><code>lsblk</code></pre>
+  <p>Lista todos los discos y particiones disponibles.</p>
+
+  <h3>💽 4. Particionar el disco con fdisk</h3>
+  <pre><code>fdisk /dev/sda</code></pre>
+  <p>Abrimos el editor de particiones para crear tres particiones:</p>
+  
+  <h4>1️⃣ Partición /boot:</h4>
+  <pre><code>
+n       # Nueva partición
+p       # Primaria
+[Enter] # Número de partición 1 (por defecto)
+2048    # Sector inicial
++512M   # Tamaño de 512MB
+  </code></pre>
+  <p>Para el kernel de Linux y GRUB.</p>
+
+  <h4>2️⃣ Partición swap:</h4>
+  <pre><code>
+n
+p
+[Enter]
+[Enter]
++2G
+t
+2
+82
+  </code></pre>
+  <p>Sirve como memoria virtual.</p>
+
+  <h4>3️⃣ Partición raíz /:</h4>
+  <pre><code>
+n
+p
+3
+[Enter]
+[Enter]
+  </code></pre>
+  <p>Para el sistema operativo principal.</p>
+
+  <pre><code>p   # Ver tabla de particiones (opcional)
+w   # Guardar y salir</code></pre>
+
+  <h3>🧾 5. Formatear y montar las particiones</h3>
+  <pre><code>
+mkfs.ext4 /dev/sda3
+mkswap /dev/sda2
+swapon /dev/sda2
+mount /dev/sda3 /mnt
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+lsblk
+  </code></pre>
+
+  <h3>📦 6. Instalar el sistema base</h3>
+  <pre><code>
+pacstrap /mnt base linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
+cat /mnt/etc/fstab
+  </code></pre>
+
+  <h3>🛠️ 7. Entrar al sistema instalado</h3>
+  <pre><code>arch-chroot /mnt</code></pre>
+
+  <h3>🌍 8. Configurar la zona horaria y reloj</h3>
+  <pre><code>
+ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
+hwclock --systohc
+  </code></pre>
+
+  <h3>⌨️ 9. Configurar teclado, nombre del host y hosts</h3>
+  <pre><code>
+loadkeys la-latin1
+echo "archlinux" > /etc/hostname
+pacman -S nano
+nano /etc/hosts
+  </code></pre>
+  <pre><code># Static table lookup for hostnames.
+# See hosts(5) for details.
+127.0.0.1       localhost
+::1             localhost
+127.0.1.1       archlinux.localdomain archlinux
+  </code></pre>
+
+  <h3>⚙️ 10. Instalar y configurar GRUB</h3>
+  <pre><code>
+pacman -S grub
+grub-install --target=i386-pc /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+  </code></pre>
+
+  <h3>🔑 11. Establecer contraseña del root y salir</h3>
+  <pre><code>
+passwd
+exit
+umount -R /mnt
+reboot
+  </code></pre>
+
+  <h3>🔁 12. Primer arranque después de la instalación</h3>
+  <p>(Quita la ISO desde VirtualBox antes de arrancar)</p>
+  <pre><code>
+ping -c 4 8.8.8.8
+ping -c 4 archlinux.org
+  </code></pre>
+
+  <h3>🧰 13. Instalar herramientas básicas</h3>
+  <pre><code>
+sudo pacman -S make rsync curl git
+make --version
+rsync --version
+curl --version
+git --version
+  </code></pre>
         <iframe width="560" height="315" src="https://youtube.com/embed/87MF9O0CdAI" frameborder="0" allowfullscreen></iframe>
       </article>
 
