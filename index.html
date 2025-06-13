@@ -67,7 +67,7 @@
     <li>
       <strong>Descarga de la imagen ISO de Ubuntu</strong>
       <p>Se accedió al sitio oficial de Ubuntu a través del siguiente enlace:<br>
-      🔗 <a href="https://ubuntu.com/download/desktop" target="_blank">https://ubuntu.com/download/desktop</a></p>
+       <a href="https://ubuntu.com/download/desktop" target="_blank">https://ubuntu.com/download/desktop</a></p>
       <p>Desde allí se seleccionó la versión más reciente del sistema operativo Ubuntu (por ejemplo, Ubuntu 24.04 LTS) y se descargó la imagen en formato .iso para su posterior instalación.</p>
     </li>
 
@@ -104,12 +104,12 @@
       <article class="actividad">
   <h2>Instalación de Arch Linux en ambiente consola</h2>
   
-  <h3>🖥️ 1. Descargar la ISO de Arch Linux</h3>
+  <h3> 1. Descargar la ISO de Arch Linux</h3>
   <p>• Entramos a: <a href="https://archlinux.org/download/">https://archlinux.org/download/</a></p>
   <p>• Bajamos hasta donde dice Colombia y elegimos el primer link</p>
   <p>• Nos lleva a un listado de versiones; descargamos la primera (la más reciente)</p>
 
-  <h3>💻 2. Crear la máquina virtual en VirtualBox</h3>
+  <h3> 2. Crear la máquina virtual en VirtualBox</h3>
   <ol>
     <li>Abrimos VirtualBox y hacemos clic en "Nueva"</li>
     <li>Asignamos un nombre para la máquina (por ejemplo: archlinux)</li>
@@ -119,17 +119,17 @@
     <li>Iniciamos la máquina virtual y elegimos la primera opción del menú de arranque (Arch Linux install medium)</li>
   </ol>
 
-  <h3>🧑‍💻 3. Verificar conectividad y listar discos</h3>
+  <h3> 3. Verificar conectividad y listar discos</h3>
   <pre><code>ping -c 4 google.com</code></pre>
   <p>Verifica que tienes conexión a internet.</p>
   <pre><code>lsblk</code></pre>
   <p>Lista todos los discos y particiones disponibles.</p>
 
-  <h3>💽 4. Particionar el disco con fdisk</h3>
+  <h3> 4. Particionar el disco con fdisk</h3>
   <pre><code>fdisk /dev/sda</code></pre>
   <p>Abrimos el editor de particiones para crear tres particiones:</p>
   
-  <h4>1️⃣ Partición /boot:</h4>
+  <h4>1️. Partición /boot:</h4>
   <pre><code>
 n       # Nueva partición
 p       # Primaria
@@ -139,7 +139,7 @@ p       # Primaria
   </code></pre>
   <p>Para el kernel de Linux y GRUB.</p>
 
-  <h4>2️⃣ Partición swap:</h4>
+  <h4>2️. Partición swap:</h4>
   <pre><code>
 n
 p
@@ -152,7 +152,7 @@ t
   </code></pre>
   <p>Sirve como memoria virtual.</p>
 
-  <h4>3️⃣ Partición raíz /:</h4>
+  <h4>3️. Partición raíz /:</h4>
   <pre><code>
 n
 p
@@ -165,7 +165,7 @@ p
   <pre><code>p   # Ver tabla de particiones (opcional)
 w   # Guardar y salir</code></pre>
 
-  <h3>🧾 5. Formatear y montar las particiones</h3>
+  <h3>5. Formatear y montar las particiones</h3>
   <pre><code>
 mkfs.ext4 /dev/sda3
 mkswap /dev/sda2
@@ -176,23 +176,23 @@ mount /dev/sda1 /mnt/boot
 lsblk
   </code></pre>
 
-  <h3>📦 6. Instalar el sistema base</h3>
+  <h3>6. Instalar el sistema base</h3>
   <pre><code>
 pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
   </code></pre>
 
-  <h3>🛠️ 7. Entrar al sistema instalado</h3>
+  <h3> 7. Entrar al sistema instalado</h3>
   <pre><code>arch-chroot /mnt</code></pre>
 
-  <h3>🌍 8. Configurar la zona horaria y reloj</h3>
+  <h3> 8. Configurar la zona horaria y reloj</h3>
   <pre><code>
 ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
 hwclock --systohc
   </code></pre>
 
-  <h3>⌨️ 9. Configurar teclado, nombre del host y hosts</h3>
+  <h3> 9. Configurar teclado, nombre del host y hosts</h3>
   <pre><code>
 loadkeys la-latin1
 echo "archlinux" > /etc/hostname
@@ -206,14 +206,14 @@ nano /etc/hosts
 127.0.1.1       archlinux.localdomain archlinux
   </code></pre>
 
-  <h3>⚙️ 10. Instalar y configurar GRUB</h3>
+  <h3> 10. Instalar y configurar GRUB</h3>
   <pre><code>
 pacman -S grub
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
   </code></pre>
 
-  <h3>🔑 11. Establecer contraseña del root y salir</h3>
+  <h3> 11. Establecer contraseña del root y salir</h3>
   <pre><code>
 passwd
 exit
@@ -221,14 +221,14 @@ umount -R /mnt
 reboot
   </code></pre>
 
-  <h3>🔁 12. Primer arranque después de la instalación</h3>
+  <h3> 12. Primer arranque después de la instalación</h3>
   <p>(Quita la ISO desde VirtualBox antes de arrancar)</p>
   <pre><code>
 ping -c 4 8.8.8.8
 ping -c 4 archlinux.org
   </code></pre>
 
-  <h3>🧰 13. Instalar herramientas básicas</h3>
+  <h3> 13. Instalar herramientas básicas</h3>
   <pre><code>
 sudo pacman -S make rsync curl git
 make --version
@@ -243,7 +243,7 @@ git --version
       <article>
         <h3>2.1 Instalación de Editores e IDEs</h3>
         <article>
-  <h3>🔧 Comandos ejecutados y para qué sirven</h3>
+  <h3> Comandos ejecutados y para qué sirven</h3>
 
   <pre><code>
 sudo apt update
@@ -289,7 +289,7 @@ cat prueba2.txt
       <article>
         <h3>3.1 Script en entorno gráfico</h3>
         <article>
-  <h3>🧹 Script de limpieza de archivos temporales (entorno gráfico)</h3>
+  <h3> Script de limpieza de archivos temporales (entorno gráfico)</h3>
 
   <pre><code>
 #!/bin/bash 
@@ -307,7 +307,7 @@ rm -rf /tmp/*
 notify-send "Limpieza completa" "Archivos temporales eliminados con éxito"
   </code></pre>
 
-  <h4>🧠 ¿Qué hace este script?</h4>
+  <h4> ¿Qué hace este script?</h4>
   <ul>
     <li><strong>#!/bin/bash</strong>: Indica que el script se ejecuta con el intérprete Bash.</li>
     <li><strong>notify-send</strong>: Muestra notificaciones gráficas al usuario.
@@ -323,7 +323,7 @@ notify-send "Limpieza completa" "Archivos temporales eliminados con éxito"
     <li><strong>rm -rf /tmp/*</strong>: Elimina archivos temporales del sistema en <code>/tmp</code>.</li>
   </ul>
 
-  <h4>⚙️ Para ejecutar este script:</h4>
+  <h4> Para ejecutar este script:</h4>
   <pre><code>
 chmod +x limpieza.sh
 🔹 Otorga permisos de ejecución al archivo limpieza.sh.
@@ -339,7 +339,7 @@ chmod +x limpieza.sh
       <article>
         <h3>3.2 Script en entorno consola</h3>
         <article>
-  <h3>🗄️ Script de respaldo (backup) de la carpeta personal</h3>
+  <h3> Script de respaldo (backup) de la carpeta personal</h3>
 
   <pre><code>
 #!/bin/bash
@@ -360,7 +360,7 @@ tar -czf "$DESTINO/$ARCHIVO" --exclude="$DESTINO" "$HOME"
 echo "Backup completado: $DESTINO/$ARCHIVO"
   </code></pre>
 
-  <h4>🧠 ¿Qué hace este script?</h4>
+  <h4> ¿Qué hace este script?</h4>
   <ul>
     <li><strong>#!/bin/bash</strong>: Indica que el script debe ejecutarse con el intérprete Bash.</li>
     <li><strong>FECHA=$(date +%y-%m-%d_%H-%M)</strong>: Genera una fecha con el formato año-mes-día_hora-minutos para usarla como nombre del archivo.</li>
@@ -371,7 +371,7 @@ echo "Backup completado: $DESTINO/$ARCHIVO"
     <li><strong>echo</strong>: Muestra mensajes por terminal indicando el inicio y final del proceso.</li>
   </ul>
 
-  <h4>⚙️ Para ejecutar este script:</h4>
+  <h4> Para ejecutar este script:</h4>
   <pre><code>
 chmod +x backup.sh
 🔹 Otorga permisos de ejecución al script.
