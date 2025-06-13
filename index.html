@@ -251,48 +251,123 @@ chmod +x backup.sh
       </article>
 
       <!-- Actividad 4.1 -->
-      <article>
-        <h3>4.1 Instalación de Docker Desktop</h3>
-        <p>Explicación de cómo se instaló Docker Desktop paso a paso...</p>
+      <article class="section" id="punto4-1">
+  <h3>4.1 Instalación de Docker Desktop</h3>
+  <p>
+    Primero ingresamos al sitio web oficial:
+    <a href="https://www.docker.com/products/docker-desktop/" target="_blank">https://www.docker.com/products/docker-desktop/</a>
+    y presionamos donde dice “Download Docker Desktop”. Seleccionamos la descarga para nuestro sistema operativo.
+  </p>
+  <p>
+    Se descargará un instalador que abrimos y ejecutamos aceptando las opciones por defecto. Luego, iniciamos sesión en la aplicación Docker Desktop y verificamos la instalación con:
+  </p>
+  <pre><code>docker --version
+docker run hello-world</code></pre>
         <iframe width="560" height="315" src="https://youtube.com/embed/oozlz7gFll4" frameborder="0" allowfullscreen></iframe>
       </article>
 
       <!-- Actividad 4.2 -->
-      <article>
-        <h3>4.2 Creación de imagen Docker</h3>
-        <p>Proceso completo de creación de una imagen personalizada con un Dockerfile...</p>
+      <article class="section" id="punto4-2">
+  <h3>4.2 Creación de imagen Docker</h3>
+  <p>
+    Creamos una carpeta para guardar el archivo Dockerfile:
+  </p>
+  <pre><code>mkdir fedora-dev
+cd fedora-dev
+notepad Dockerfile</code></pre>
+  <p>Contenido del Dockerfile:</p>
+  <pre><code>FROM fedora:latest
+RUN dnf update -y && dnf install -y \
+    vim \
+    nano \
+    git \
+    curl \
+    wget \
+    && dnf clean all</code></pre>
+  <p>
+    Guardamos el archivo asegurándonos de renombrarlo si se guardó como <code>Dockerfile.txt</code>:
+  </p>
+  <pre><code>Rename-Item -Path "Dockerfile.txt" -NewName "Dockerfile"</code></pre>
+  <p>Luego construimos la imagen:</p>
+  <pre><code>docker build -t fedora-dev .</code></pre>
         <iframe width="560" height="315" src="https://youtube.com/embed/v3hva3fT_h0" frameborder="0" allowfullscreen></iframe>
       </article>
       <!-- Actividad 4.3 -->
-      <article>
-        <h3>4.3 Creación de contenedor</h3>
-        <p>Uso de la imagen anterior para crear y ejecutar un contenedor...</p>
+      <article class="section" id="punto4-3">
+  <h3>4.3 Creación de contenedor Docker</h3>
+  <p>
+    Corremos el contenedor con la imagen creada anteriormente:
+  </p>
+  <pre><code>docker run -it fedora-dev bash</code></pre>
+  <p>
+    Verificamos las herramientas instaladas dentro del contenedor:
+  </p>
+  <pre><code>vim --version
+nano --version</code></pre>
         <iframe width="560" height="315" src="https://youtube.com/embed/v3hva3fT_h0" frameborder="0" allowfullscreen></iframe>
       </article>
        <!-- ACTIVIDAD 5  -->
         <section class="actividad">
             <h2>5. Modificación y publicación en Docker Hub </h2>
-
-            <h3>5.1 Modificación de imagen </h3>
-            <p>Espacio para describir cómo se modificó la imagen Docker, incluyendo herramientas agregadas como suites ofimáticas o nuevos entornos de desarrollo.</p>
+          <p>Modificamos el Dockerfile para instalar nuevas herramientas:</p>
+  <pre><code>FROM fedora-dev:latest
+RUN dnf update -y && \
+    dnf install -y libreoffice git && \
+    dnf clean all
+CMD ["/bin/bash"]</code></pre>
+  <p>Construimos la nueva imagen modificada:</p>
+  <pre><code>cd fedora-dev
+docker build -t fedora-dev-modificada .</code></pre>
+  <p>Y la ejecutamos para verificar:</p>
+  <pre><code>docker run -it fedora-dev-modificada /bin/bash
+libreoffice --version
+git --version</code></pre>
             <iframe width="560" height="315" src="https://youtube.com/embed/k14WbRx4sXg" frameborder="0" allowfullscreen></iframe>
-
-            <h3>5.2 Publicación en Docker Hub </h3>
-            <p>Espacio para explicar cómo se subió la imagen modificada a Docker Hub, incluyendo comandos utilizados, credenciales y visibilidad pública.</p>
+            <h3>5.2 Publicación en Docker Hub</h3>
+  <p>Iniciamos sesión:</p>
+  <pre><code>docker login</code></pre>
+  <p>Etiquetamos la imagen:</p>
+  <pre><code>docker tag fedora-dev-modificada gardandg/fedora-dev-modificada:latest</code></pre>
+  <p>Y la subimos:</p>
+  <pre><code>docker push gardandg/fedora-dev-modificada:latest</code></pre>
+</article>
             <iframe width="560" height="315" src="https://youtube.com/embed/7qEHwrDzMzk" frameborder="0" allowfullscreen></iframe>
         </section>
 
       <!-- Actividad 6.1 -->
-      <article>
-        <h3>6.1 Instalación de Kubernetes</h3>
-        <p>Documentación del proceso de instalación de Kubernetes con Docker Desktop...</p>
+      <article class="section" id="punto6-1">
+         <h3>6.1 Instalación de Kubernetes en Docker Desktop</h3>
+  <p>Vamos al menú de ajustes y activamos la opción Kubernetes. Esperamos que finalice la instalación automática.</p>
+  <p>Verificamos los componentes:</p>
+  <pre><code>kubectl version --client
+kubectl cluster-info</code></pre>
         <iframe width="560" height="315" src="https://youtube.com/embed/uQ6D0dP-1gM" frameborder="0" allowfullscreen></iframe>
       </article>
 
       <!-- Actividad 6.2 -->
-      <article>
-        <h3>6.2 Creación y ejecución de un pod</h3>
-        <p>Explicación de cómo se configuró y ejecutó un pod en el entorno local...</p>
+      <article class="section" id="punto6-2">
+         <h3>6.2 Creación y ejecución de un Pod</h3>
+  <p>Creamos una carpeta y un archivo de configuración:</p>
+  <pre><code>mkdir k8s
+cd k8s
+notepad fedora.yaml</code></pre>
+  <p>Contenido del archivo <code>fedora.yaml</code>:</p>
+  <pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: fedora-dev-pod
+spec:
+  containers:
+    - name: fedora-dev-container
+      image: gardandg/fedora-dev-modificada:latest
+      command: ["/bin/bash", "-c", "sleep infinity"]</code></pre>
+  <p>Aplicamos la configuración y verificamos:</p>
+  <pre><code>kubectl apply -f fedora.yaml
+kubectl get pods
+kubectl exec -it fedora-dev-pod -- /bin/bash</code></pre>
+  <p>Dentro del pod verificamos las herramientas:</p>
+  <pre><code>git --version
+libreoffice --version</code></pre>
         <iframe width="560" height="315" src="https://youtube.com/embed/SICg_CZCA18" frameborder="0" allowfullscreen></iframe>
       </article>
     </section>
