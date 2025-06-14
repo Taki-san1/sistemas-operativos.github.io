@@ -103,8 +103,8 @@
 
       <!-- Actividad 1.2 -->
       <article class="actividad">
-  <h2>Instalación de Arch Linux en ambiente consola</h2>
-  
+  <h2>1.2 Instalación de Arch Linux en ambiente consola</h2>
+  <img src="1.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
   <h3> 1. Descargar la ISO de Arch Linux</h3>
   <p>• Entramos a: <a href="https://archlinux.org/download/">https://archlinux.org/download/</a></p>
   <p>• Bajamos hasta donde dice Colombia y elegimos el primer link</p>
@@ -245,6 +245,8 @@ git --version
         <h3>2.1 Instalación de Editores e IDEs</h3>
         <article>
   <h3> Comandos ejecutados y para qué sirven</h3>
+  <img src="2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
+  <img src="2.1.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
 
   <pre><code>
 sudo apt update
@@ -291,6 +293,7 @@ cat prueba2.txt
         <h3>3.1 Script en entorno gráfico</h3>
         <article>
   <h3> Script de limpieza de archivos temporales (entorno gráfico)</h3>
+  <img src="3.1.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
 
   <pre><code>
 #!/bin/bash 
@@ -341,6 +344,7 @@ chmod +x limpieza.sh
         <h3>3.2 Script en entorno consola</h3>
         <article>
   <h3> Script de respaldo (backup) de la carpeta personal</h3>
+  <img src="3.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
 
   <pre><code>
 #!/bin/bash
@@ -423,6 +427,7 @@ RUN dnf update -y && dnf install -y \
   <pre><code>Rename-Item -Path "Dockerfile.txt" -NewName "Dockerfile"</code></pre>
   <p>Luego construimos la imagen:</p>
   <pre><code>docker build -t fedora-dev .</code></pre>
+  <img src="4.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
         <iframe width="560" height="315" src="https://youtube.com/embed/v3hva3fT_h0" frameborder="0" allowfullscreen></iframe>
       </article>
       <!-- Actividad 4.3 -->
@@ -455,6 +460,8 @@ docker build -t fedora-dev-modificada .</code></pre>
   <pre><code>docker run -it fedora-dev-modificada /bin/bash
 libreoffice --version
 git --version</code></pre>
+          <img src="5.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
+          
             <iframe width="560" height="315" src="https://youtube.com/embed/k14WbRx4sXg" frameborder="0" allowfullscreen></iframe>
             <h3>5.2 Publicación en Docker Hub</h3>
   <p>Iniciamos sesión:</p>
@@ -464,6 +471,7 @@ git --version</code></pre>
   <p>Y la subimos:</p>
   <pre><code>docker push gardandg/fedora-dev-modificada:latest</code></pre>
 </article>
+       <img src="5.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
             <iframe width="560" height="315" src="https://youtube.com/embed/7qEHwrDzMzk" frameborder="0" allowfullscreen></iframe>
         </section>
 
@@ -501,6 +509,7 @@ kubectl exec -it fedora-dev-pod -- /bin/bash</code></pre>
   <p>Dentro del pod verificamos las herramientas:</p>
   <pre><code>git --version
 libreoffice --version</code></pre>
+       <img src="6.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
         <iframe width="560" height="315" src="https://youtube.com/embed/SICg_CZCA18" frameborder="0" allowfullscreen></iframe>
       </article>
     </section>
