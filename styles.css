@@ -6,6 +6,7 @@ body {
   color: #e0e0e0;
 }
 
+
 header {
   background-color: #1f1f1f;
   padding: 30px 0;
@@ -200,3 +201,14 @@ a:hover {
   color: #ffffff;
   text-decoration: underline;
 }
+/* Estilo para las imágenes de referencia */
+.illustration {
+  width: 100%;         /* Ocupa todo el ancho del contenedor */
+  max-width: 600px;    /* Máximo 600px de ancho para que no se deforme */
+  height: auto;        /* Mantiene la proporción original */
+  display: block;      /* Se comporta como un bloque para aplicar el centrado */
+  margin: 1rem auto;   /* Margen arriba/abajo y centrado automático */
+  border-radius: 8px;  /* Opcional: bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Opcional: sombra para destacar */
+}
+
