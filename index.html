@@ -421,13 +421,13 @@ RUN dnf update -y && dnf install -y \
     curl \
     wget \
     && dnf clean all</code></pre>
+  <img src="4.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
   <p>
     Guardamos el archivo asegurándonos de renombrarlo si se guardó como <code>Dockerfile.txt</code>:
   </p>
   <pre><code>Rename-Item -Path "Dockerfile.txt" -NewName "Dockerfile"</code></pre>
   <p>Luego construimos la imagen:</p>
   <pre><code>docker build -t fedora-dev .</code></pre>
-  <img src="4.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
         <iframe width="560" height="315" src="https://youtube.com/embed/v3hva3fT_h0" frameborder="0" allowfullscreen></iframe>
       </article>
       <!-- Actividad 4.3 -->
@@ -453,6 +453,7 @@ RUN dnf update -y && \
     dnf install -y libreoffice git && \
     dnf clean all
 CMD ["/bin/bash"]</code></pre>
+  <img src="5.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
   <p>Construimos la nueva imagen modificada:</p>
   <pre><code>cd fedora-dev
 docker build -t fedora-dev-modificada .</code></pre>
@@ -460,7 +461,6 @@ docker build -t fedora-dev-modificada .</code></pre>
   <pre><code>docker run -it fedora-dev-modificada /bin/bash
 libreoffice --version
 git --version</code></pre>
-          <img src="5.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
           
             <iframe width="560" height="315" src="https://youtube.com/embed/k14WbRx4sXg" frameborder="0" allowfullscreen></iframe>
             <h3>5.2 Publicación en Docker Hub</h3>
@@ -468,10 +468,10 @@ git --version</code></pre>
   <pre><code>docker login</code></pre>
   <p>Etiquetamos la imagen:</p>
   <pre><code>docker tag fedora-dev-modificada gardandg/fedora-dev-modificada:latest</code></pre>
+  <img src="5.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
   <p>Y la subimos:</p>
   <pre><code>docker push gardandg/fedora-dev-modificada:latest</code></pre>
 </article>
-       <img src="5.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
             <iframe width="560" height="315" src="https://youtube.com/embed/7qEHwrDzMzk" frameborder="0" allowfullscreen></iframe>
         </section>
 
@@ -502,6 +502,7 @@ spec:
     - name: fedora-dev-container
       image: gardandg/fedora-dev-modificada:latest
       command: ["/bin/bash", "-c", "sleep infinity"]</code></pre>
+  <img src="6.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
   <p>Aplicamos la configuración y verificamos:</p>
   <pre><code>kubectl apply -f fedora.yaml
 kubectl get pods
@@ -509,7 +510,6 @@ kubectl exec -it fedora-dev-pod -- /bin/bash</code></pre>
   <p>Dentro del pod verificamos las herramientas:</p>
   <pre><code>git --version
 libreoffice --version</code></pre>
-       <img src="6.2.jpg" alt="Instalación Ubuntu paso 1" class="illustration">
         <iframe width="560" height="315" src="https://youtube.com/embed/SICg_CZCA18" frameborder="0" allowfullscreen></iframe>
       </article>
     </section>
